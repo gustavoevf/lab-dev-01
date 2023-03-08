@@ -5,6 +5,7 @@
 2. Como aluno, eu quero poder fazer minhas matrículas no sistema para que eu possa me inscrever nas disciplinas do semestre.
 3. Como aluno, eu quero poder editar minhas matrículas no sistema caso eu precise mudar minha escolha de disciplinas.
 4. Como aluno, eu quero poder ver meu histórico de matrículas no sistema para que eu saiba quais disciplinas eu já me inscrevi e em quais semestres.
+5. Como aluno, eu quero poder cancelar minha matrícula.
 
 ### Professor
 1. Como professor, eu devo logar no sistema de matrículas.
