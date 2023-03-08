@@ -13,4 +13,4 @@
 2. Como secretaria, eu quero poder manter as informações sobre disciplinas, professores e alunos no sistema para que eu possa garantir que todos os dados estejam corretos e atualizados.
 
 ### Sistema de Cobranças
-1. Como sistema de cobranças, eu quero ser notificado pelo sistema de matrículas quando um aluno fizer uma matrícula para que eu possa cobrar o aluno pelas disciplinas escolhidas.
+1. Como sistema de cobranças, eu quero ser notificado pelo sistema de matrículas quando um aluno fizer uma matrícula.
