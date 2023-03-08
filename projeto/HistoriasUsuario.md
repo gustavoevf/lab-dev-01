@@ -10,7 +10,9 @@
 
 ### Secretaria
 1. Como secretaria, eu quero poder gerar o currículo para cada semestre no sistema para que eu possa garantir que todas as informações estejam atualizadas.
-2. Como secretaria, eu quero poder manter as informações sobre disciplinas, professores e alunos no sistema para que eu possa garantir que todos os dados estejam corretos e atualizados.
+2. Como secretaria, eu quero poder inclui as informações sobre disciplinas, professores e alunos no sistema para que eu possa garantir que todos os dados estejam corretos e atualizados.
+3. Como secretaria, eu quero poder alterar as informações sobre disciplinas, professores e alunos no sistema para que eu possa garantir que todos os dados estejam corretos e atualizados.
+4. Como secretaria, eu quero poder excluir as informações sobre disciplinas, professores e alunos no sistema para que eu possa garantir que todos os dados estejam corretos e atualizados.
 
 ### Sistema de Cobranças
 1. Como sistema de cobranças, eu quero ser notificado pelo sistema de matrículas quando um aluno fizer uma matrícula.
