@@ -7,19 +7,11 @@ public class Curso implements IVincularDesciplina {
 
 	private String nome;
 	private int creditos;
-	private Disciplina[] disciplinas;
-	private Aluno[] alunos;
+	private Collection<Disciplina> disciplinas = new List<Disciplina>();
+	private Collection<Aluno> alunos = new List<Aluno>();
 
 	public void addAluno(Aluno aluno) {
-		throw new UnsupportedOperationException("The method is not implemented yet.");
-	}
-
-	private boolean addDisciplina(Disciplina disciplina) {
-		throw new UnsupportedOperationException("The method is not implemented yet.");
-	}
-
-	private boolean removerDisciplina(Disciplina disciplina) {
-		throw new UnsupportedOperationException("The method is not implemented yet.");
+		
 	}
 
 }

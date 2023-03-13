@@ -8,20 +8,20 @@ public class Disciplina {
 	private String nome;
 	private String descricao;
 	private int cargaHoraria;
-	private Disciplina[] preRequisitos;
 	private int ano;
-	private Pessoa[] vinculados;
+	private Collection<Disciplina> preRequisitos = new List<Disciplina>();
+	private Collection<Pessoa> vinculados = new List<Pessoa>();
 
 	private void addAluno(Aluno aluno) {
-		throw new UnsupportedOperationException("The method is not implemented yet.");
+		
 	}
 
 	private void addRequisito(Disciplina disciplina) {
-		throw new UnsupportedOperationException("The method is not implemented yet.");
+		
 	}
 
 	private void removerRequisito(Disciplina disciplina) {
-		throw new UnsupportedOperationException("The method is not implemented yet.");
+		
 	}
 
 }

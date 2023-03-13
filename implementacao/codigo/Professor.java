@@ -5,23 +5,15 @@ import java.util.*;
 
 public class Professor extends Pessoa implements IVincularDesciplina {
 
-	private Disciplinas[] disciplinasAptas;
-	private Disciplinas[] disciplinasLecionadas;
+	private Collection<Disciplina> disciplinasAptas = new List<Disciplina>();
+	private Collection<Disciplina> disciplinasLecionadas = new List<Disciplina>();
 
 	private void addDisciplinaApta(Disciplina disciplina) {
-		throw new UnsupportedOperationException("The method is not implemented yet.");
+		
 	}
 
 	private void removerDisciplinaApta(Disciplina disciplina) {
-		throw new UnsupportedOperationException("The method is not implemented yet.");
-	}
-
-	private boolean addDisciplina(Disciplina disciplina) {
-		throw new UnsupportedOperationException("The method is not implemented yet.");
-	}
-
-	private boolean removerDisciplina(Disciplina disciplina) {
-		throw new UnsupportedOperationException("The method is not implemented yet.");
+		
 	}
 
 }

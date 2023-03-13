@@ -10,11 +10,11 @@ public class Usuario {
 	private String email;
 
 	private void alterarSenha(String senha) {
-		throw new UnsupportedOperationException("The method is not implemented yet.");
+		
 	}
 
 	private void alterarEmail(String novoEmail) {
-		throw new UnsupportedOperationException("The method is not implemented yet.");
+		
 	}
 
 }
