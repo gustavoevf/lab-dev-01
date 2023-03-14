@@ -11,6 +11,7 @@ public class Aplicacao {
 		
 		Faculdade faculdade = new Faculdade();
 		faculdade.imprimirCursos();
+		faculdade.imprimirPessoas();
 	}
 	
 	

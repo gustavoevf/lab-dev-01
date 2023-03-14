@@ -23,7 +23,7 @@ public class Faculdade {
 
     public void carregarCursosArquivo() {
 		try {
-			BufferedReader buffRead = new BufferedReader(new FileReader("cursos.txt"));
+			BufferedReader buffRead = new BufferedReader(new FileReader("/media/juvito/Data/Meu_Repositorio/GIT_LAB-DEV/lab-dev-01/implementacao/codigo/cursos.txt"));
 			String linha = buffRead.readLine();
 			
 			while(linha != null) {
@@ -53,7 +53,7 @@ public class Faculdade {
         String linhaLida;
         String[] PessoaLida;
         try {
-            entrada = new Scanner(new FileReader("pessoas.txt"));
+            entrada = new Scanner(new FileReader("/media/juvito/Data/Meu_Repositorio/GIT_LAB-DEV/lab-dev-01/implementacao/codigo/pessoas.txt"));
             while (entrada.hasNextLine()) {
                 linhaLida = entrada.nextLine();
                 PessoaLida = linhaLida.split(";");
@@ -74,17 +74,36 @@ public class Faculdade {
 	public void imprimirAlunosMatriculados() {
 				
 		ArrayList<Disciplina> disciplina = (ArrayList<Disciplina>) cursos.stream().flatMap(d-> d.getDisciplinas().stream()).collect(Collectors.toList()); 
-		disciplina.stream().forEach(a -> System.out.println("\n Disciplina : " + a.getNome() + " quantidade de alunos: " + a.getVinculados().size()));
+		disciplina.stream().forEach(a -> System.out.println("\n DISCIPLINA : " + a.getNome() + " QUANTIDADE DE ALUNOS: " + a.getVinculados().size()));
 	
 	}
 	
 	public void imprimirCursos() {
+
+		System.out.println("\n\nCURSOS E DISCIPLINAS CADASTRADAS : \n");
 		
 		for(Curso curso : cursos) {
-			System.out.println(curso.getNome());
+			System.out.println("\n" + curso.getNome() + "\n");
 			ArrayList<Disciplina> disciplinas = curso.getDisciplinas();
 			for(Disciplina disciplina : disciplinas) {
-				System.out.println("  " + disciplina.getNome());
+				System.out.println("   " + disciplina.getNome());
+			}
+		}
+	}
+
+	public void imprimirPessoas() {
+		
+		System.out.println("\n\nPESSOAS CADASTRADAS NO SISTEMA : \n");
+
+		for(Pessoa pessoa: pessoas) {
+			if(pessoa instanceof Aluno){
+				System.out.println("ALUNO  --> " + pessoa.nome);
+			}	
+			else if (pessoa instanceof Professor) {
+				System.out.println("PROFESSOR  --> " + pessoa.nome);
+			}
+			else if (pessoa instanceof Secretaria) {
+				System.out.println("SECRETARIA  --> " + pessoa.nome);
 			}
 		}
 	}
