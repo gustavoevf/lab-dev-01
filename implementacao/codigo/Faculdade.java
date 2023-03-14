@@ -21,6 +21,36 @@ public class Faculdade {
 		carregarCursosArquivo();
 		carregarPessoasArquivo();
 	}
+	
+	public Pessoa loginUsuario(String cpf, String senha) throws FileNotFoundException {
+		Pessoa pessoaLogin = this.pessoas.stream()
+		.filter(p -> p.matricula.contentEquals(cpf))
+		.findFirst().get();
+		if(pessoaLogin != null) {
+			if(pessoaLogin.usuario.getSenha().compareTo(senha) == 0) {
+				return pessoaLogin;
+			}
+		}
+		return null;
+	}
+	
+	public Pessoa obterPessoa(String cpf) {
+		return this.pessoas.stream()
+				.filter(p -> p.matricula.contentEquals(cpf))
+				.findFirst().get();
+	}
+
+	public Set<Curso> getCursos() {
+		return cursos;
+	}
+
+	public Set<Disciplina> getDisciplinas() {
+		return disciplinas;
+	}
+
+	public static Set<Pessoa> getPessoas() {
+		return pessoas;
+	}
 
 	public void carregarDisciplinasArquivo() {
 		Scanner entrada;
@@ -30,7 +60,7 @@ public class Faculdade {
 
 		try {
 			entrada = new Scanner(new FileReader(
-					"/media/juvito/Data/Meu_Repositorio/GIT_LAB-DEV/lab-dev-01/implementacao/codigo/disciplinas.txt"));
+					"disciplinas.txt"));
 			while (entrada.hasNextLine()) {
 				linhaLida = entrada.nextLine();
 				disciplinaLida = linhaLida.split(";");
@@ -49,7 +79,7 @@ public class Faculdade {
 	public void carregarCursosArquivo() {
 		try {
 			BufferedReader buffRead = new BufferedReader(new FileReader(
-					"/media/juvito/Data/Meu_Repositorio/GIT_LAB-DEV/lab-dev-01/implementacao/codigo/cursos.txt"));
+					"cursos.txt"));
 			String linha = buffRead.readLine();
 			List<Disciplina> disciplinasExistentes;
 
@@ -86,7 +116,7 @@ public class Faculdade {
 		String[] PessoaLida;
 		try {
 			entrada = new Scanner(new FileReader(
-					"/media/juvito/Data/Meu_Repositorio/GIT_LAB-DEV/lab-dev-01/implementacao/codigo/pessoas.txt"));
+					"pessoas.txt"));
 			while (entrada.hasNextLine()) {
 				linhaLida = entrada.nextLine();
 				PessoaLida = linhaLida.split(";");

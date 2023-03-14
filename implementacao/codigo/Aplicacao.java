@@ -7,6 +7,9 @@ public class Aplicacao {
 		Faculdade faculdade = new Faculdade();
 		faculdade.imprimirCursos();
 		faculdade.imprimirPessoas();
+		
+		Pessoa p = faculdade.obterPessoa("11111111111");
+		System.out.println(p.usuario.verificarSenha("12345"));
 
 		// Secretaria sec = new Secretaria("Admin", "xxxxxxx");
 		// sec.cadastrarPessoa("TESTE INCLUSÃO 1", "342342432", "A");

@@ -5,7 +5,6 @@ public abstract class Pessoa {
 	protected Usuario usuario;
 
 	public Pessoa(String nome, String cpf) {
-
 		this.nome = nome;
 		this.matricula = cpf;
 		this.usuario = new Usuario(cpf);
