@@ -1,0 +1,6 @@
+Curso1;Mat1;Mat2;Mat3;Mat4;Mat5
+Curso2;Mat1;Mat2;Mat3;Mat4;Mat5
+Curso3;Mat1;Mat2;Mat3;Mat4;Mat5
+Curso4;Mat1;Mat2;Mat3;Mat4;Mat5
+Curso5;Mat1;Mat2;Mat3;Mat4;Mat5
+Curso6;Mat1;Mat2;Mat3;Mat4;Mat5

@@ -1,5 +1,3 @@
-package sem Título;
-
 import java.io.*;
 import java.util.*;
 

@@ -1,12 +1,10 @@
-package sem Título;
-
 import java.io.*;
 import java.util.*;
 
 public class Secretaria extends Pessoa implements IVincularDesciplina {
 
 	private Usuario usuario;
-	private Collection<Disciplina> disciplinasCadastradas = new List<Disciplina>();
+	private Collection<Disciplina> disciplinasCadastradas = new ArrayList<Disciplina>();
 
 	private void addUsuario(Usuario usuario) {
 		
@@ -18,6 +16,18 @@ public class Secretaria extends Pessoa implements IVincularDesciplina {
 
 	private void addCurso(Curso curso) {
 		
+	}
+
+	@Override
+	public boolean addDisciplina(Disciplina disciplina) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean removerDisciplina(Disciplina disciplina) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }
