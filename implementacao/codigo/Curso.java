@@ -46,8 +46,8 @@ public class Curso implements IVincularDesciplina {
 		return disciplinas;
 	}
 
-	public void setDisciplinas(Disciplina disciplinas) {
-		this.disciplinas.add(disciplinas);
+	public void setDisciplinas(List<Disciplina> disciplinasExistentes) {
+		this.disciplinas.addAll(disciplinasExistentes);
 	}
 
 	public Collection<Aluno> getAlunos() {

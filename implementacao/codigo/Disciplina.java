@@ -5,7 +5,7 @@ public class Disciplina {
 
 	private String nome;
 	private String descricao;
-	private int cargaHoraria;
+	private double cargaHoraria;
 	private int ano;
 	private Collection<Disciplina> preRequisitos = new ArrayList<Disciplina>();
 	private Collection<Pessoa> vinculados = new ArrayList<Pessoa>();
@@ -30,6 +30,13 @@ public class Disciplina {
 		this.preRequisitos = preRequisitos;
 		this.vinculados = vinculados;
 	}
+
+	public Disciplina(String nome, String descricao, double cargaHoraria, int ano){
+		this.nome = nome;
+		this.descricao = descricao;
+		this.cargaHoraria = cargaHoraria;
+		this.ano = ano;
+	}
 	
 	
 
@@ -49,7 +56,7 @@ public class Disciplina {
 		this.descricao = descricao;
 	}
 
-	public int getCargaHoraria() {
+	public double getCargaHoraria() {
 		return cargaHoraria;
 	}
 
