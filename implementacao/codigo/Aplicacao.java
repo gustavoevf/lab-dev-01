@@ -1,6 +1,8 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Aplicacao {
@@ -10,9 +12,9 @@ public class Aplicacao {
 	 * @return
 	 * @throws IOException
 	 */
-	public static void lerArquivoCurso() throws IOException {
+	public static ArrayList<Curso> lerArquivoCurso() throws IOException {
 		try {
-			Curso curso = new Curso();
+			ArrayList<Curso> cursos = new ArrayList<Curso>();
 			BufferedReader buffRead = new BufferedReader(new FileReader("cursos.txt"));
 			String linha = buffRead.readLine();
 			
@@ -20,23 +22,21 @@ public class Aplicacao {
 				String[] partes = linha.split(";");
 				if(partes.length > 0) {
 					String nomeCurso = partes[0];
-					System.out.println("Curso - " + nomeCurso);
-					String materias[] = Arrays.copyOfRange(partes, 1, partes.length);
-					for(String materia : materias) {
-						System.out.println(" Materia " + materia);
+					Curso curso = new Curso(nomeCurso);
+					String disciplinas[] = Arrays.copyOfRange(partes, 1, partes.length);
+					for(String disciplina : disciplinas) {
+						curso.setDisciplinas(new Disciplina(disciplina));
 					}
-					
+					cursos.add(curso);
 				}
-				
-				
 				linha = buffRead.readLine();
 			}
 			buffRead.close();
 			
-//			return cursos;
+			return cursos;
 		}catch(IOException ex){
-			ex.printStackTrace();
-//			return null;
+			ex.printStackTrace();  
+			return null;
 		}
 	}
 	
@@ -45,6 +45,14 @@ public class Aplicacao {
 	 * @throws IOException
 	 */
 	public static void main(String[] args) throws IOException {
-		lerArquivoCurso();
+		ArrayList<Curso> cursos = lerArquivoCurso();
+		
+		for(Curso curso : cursos) {
+			System.out.println(curso.getNome());
+			ArrayList<Disciplina> disciplinas = curso.getDisciplinas();
+			for(Disciplina disciplina : disciplinas) {
+				System.out.println("  " + disciplina.getNome());
+			}
+		}
 	}
 }
