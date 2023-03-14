@@ -40,10 +40,11 @@ public class Faculdade {
 				.findFirst().get();
 	}
 	
-	public Curso obterDisciplinasPorCurso(String nomeCurso) {
-		return this.cursos.stream()
+	public ArrayList<Disciplina> obterDisciplinasPorCurso(String nomeCurso) {
+		Curso curso = this.cursos.stream()
 				.filter(c -> c.getNome().contentEquals(nomeCurso))
 				.findFirst().get();
+		return curso.getDisciplinas();
 	}
 
 	public Set<Curso> getCursos() {
