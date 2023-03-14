@@ -5,6 +5,11 @@ public class Secretaria extends Pessoa implements IVincularDesciplina {
 
 	private Usuario usuario;
 	private Collection<Disciplina> disciplinasCadastradas = new ArrayList<Disciplina>();
+	
+	public Secretaria(String nome, String cpf) {
+		super(nome, cpf);
+		//TODO Auto-generated constructor stub
+	}
 
 	private void addUsuario(Usuario usuario) {
 		

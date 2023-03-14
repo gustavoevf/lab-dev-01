@@ -1,19 +1,18 @@
 import java.io.*;
+import java.lang.reflect.Constructor;
 import java.util.*;
 
-public class Pessoa {
+public abstract class Pessoa {
 
 	protected String matricula;
 	protected String nome;
-	protected String cpf;
 	protected Usuario usuario;
 
-	protected void login() {
-		
-	}
+	public Pessoa(String nome, String cpf){
 
-	protected void logout() {
-		
+		this.nome = nome;
+		this.matricula = cpf;
+		this.usuario = new Usuario(cpf);
 	}
 
 }
