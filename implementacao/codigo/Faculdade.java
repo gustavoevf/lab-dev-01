@@ -31,7 +31,7 @@ public class Faculdade {
 
 		try {
 			entrada = new Scanner(new FileReader(
-					"/media/juvito/Data/Meu_Repositorio/GIT_LAB-DEV/lab-dev-01/implementacao/codigo/disciplinas.txt"));
+					"disciplinas.txt"));
 			while (entrada.hasNextLine()) {
 				linhaLida = entrada.nextLine();
 				disciplinaLida = linhaLida.split(";");
@@ -50,7 +50,7 @@ public class Faculdade {
 	public void carregarCursosArquivo() {
 		try {
 			BufferedReader buffRead = new BufferedReader(new FileReader(
-					"/media/juvito/Data/Meu_Repositorio/GIT_LAB-DEV/lab-dev-01/implementacao/codigo/cursos.txt"));
+					"cursos.txt"));
 			String linha = buffRead.readLine();
 			List<Disciplina> disciplinasExistentes;
 
@@ -87,7 +87,7 @@ public class Faculdade {
 		String[] PessoaLida;
 		try {
 			entrada = new Scanner(new FileReader(
-					"/media/juvito/Data/Meu_Repositorio/GIT_LAB-DEV/lab-dev-01/implementacao/codigo/pessoas.txt"));
+					"pessoas.txt"));
 			while (entrada.hasNextLine()) {
 				linhaLida = entrada.nextLine();
 				PessoaLida = linhaLida.split(";");
