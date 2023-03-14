@@ -8,7 +8,6 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class Faculdade {
@@ -31,7 +30,7 @@ public class Faculdade {
 
 		try {
 			entrada = new Scanner(new FileReader(
-					"disciplinas.txt"));
+					"/media/juvito/Data/Meu_Repositorio/GIT_LAB-DEV/lab-dev-01/implementacao/codigo/disciplinas.txt"));
 			while (entrada.hasNextLine()) {
 				linhaLida = entrada.nextLine();
 				disciplinaLida = linhaLida.split(";");
@@ -50,7 +49,7 @@ public class Faculdade {
 	public void carregarCursosArquivo() {
 		try {
 			BufferedReader buffRead = new BufferedReader(new FileReader(
-					"cursos.txt"));
+					"/media/juvito/Data/Meu_Repositorio/GIT_LAB-DEV/lab-dev-01/implementacao/codigo/cursos.txt"));
 			String linha = buffRead.readLine();
 			List<Disciplina> disciplinasExistentes;
 
@@ -87,7 +86,7 @@ public class Faculdade {
 		String[] PessoaLida;
 		try {
 			entrada = new Scanner(new FileReader(
-					"pessoas.txt"));
+					"/media/juvito/Data/Meu_Repositorio/GIT_LAB-DEV/lab-dev-01/implementacao/codigo/pessoas.txt"));
 			while (entrada.hasNextLine()) {
 				linhaLida = entrada.nextLine();
 				PessoaLida = linhaLida.split(";");

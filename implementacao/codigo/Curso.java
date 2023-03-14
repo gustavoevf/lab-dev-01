@@ -1,4 +1,3 @@
-import java.io.*;
 import java.util.*;
 
 public class Curso implements IVincularDesciplina {
@@ -8,8 +7,6 @@ public class Curso implements IVincularDesciplina {
 	private ArrayList<Disciplina> disciplinas = new ArrayList<Disciplina>();
 	private Collection<Aluno> alunos = new ArrayList<Aluno>();
 
-	
-	
 	public Curso(String nome) {
 		super();
 		this.nome = nome;
@@ -17,7 +14,7 @@ public class Curso implements IVincularDesciplina {
 		this.disciplinas = new ArrayList<Disciplina>();
 		this.alunos = new ArrayList<Aluno>();
 	}
-	
+
 	public Curso(String nome, int creditos) {
 		super();
 		this.nome = nome;
@@ -59,7 +56,7 @@ public class Curso implements IVincularDesciplina {
 	}
 
 	public void addAluno(Aluno aluno) {
-		
+
 	}
 
 	@Override

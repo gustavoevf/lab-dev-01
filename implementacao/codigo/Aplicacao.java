@@ -7,6 +7,15 @@ public class Aplicacao {
 		Faculdade faculdade = new Faculdade();
 		faculdade.imprimirCursos();
 		faculdade.imprimirPessoas();
+
+		// Secretaria sec = new Secretaria("Admin", "xxxxxxx");
+		// sec.cadastrarPessoa("TESTE INCLUSÃO 1", "342342432", "A");
+		// sec.cadastrarPessoa("TESTE INCLUSÃO 2", "342342432", "P");
+		// sec.cadastrarPessoa("TESTE INCLUSÃO 3", "342342432", "A");
+		// sec.cadastrarCurso("TESTE INCLUSÃO 1");
+		// sec.cadastrarCurso("TESTE INCLUSÃO 2");
+		// sec.cadastrarCurso("TESTE INCLUSÃO 3");
+
 	}
 
 	// Codigo antigo caso precise de algum pedaço
