@@ -39,6 +39,12 @@ public class Faculdade {
 				.filter(p -> p.matricula.contentEquals(cpf))
 				.findFirst().get();
 	}
+	
+	public Curso obterDisciplinasPorCurso(String nomeCurso) {
+		return this.cursos.stream()
+				.filter(c -> c.getNome().contentEquals(nomeCurso))
+				.findFirst().get();
+	}
 
 	public Set<Curso> getCursos() {
 		return cursos;

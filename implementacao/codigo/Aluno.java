@@ -3,9 +3,10 @@ import java.util.*;
 public class Aluno extends Pessoa implements IVincularDesciplina {
 
 	private Collection<Disciplina> disciplinasRealizadas = new ArrayList<Disciplina>();
-
+	public static final String TIPO_PESSOA = "A";
+	
 	public Aluno(String nome, String cpf) {
-		super(nome, cpf);
+		super(nome, cpf, TIPO_PESSOA);
 	}
 
 	@Override

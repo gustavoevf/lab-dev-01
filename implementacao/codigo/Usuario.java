@@ -44,10 +44,7 @@ public class Usuario {
 	}
 
 	public boolean verificarSenha(String senha) {
-		if(this.senha.compareTo(senha) == 0) {
-			return true;
-		}
-		return false;
+			return this.senha.compareTo(senha) == 0;
 	}
 
 	private void alterarSenha(String senha) {

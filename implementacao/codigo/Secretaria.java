@@ -7,9 +7,11 @@ import java.util.*;
 public class Secretaria extends Pessoa implements IVincularDesciplina {
 
 	private Collection<Disciplina> disciplinasCadastradas = new ArrayList<Disciplina>();
-
+	public static final String TIPO_PESSOA = "S";
+	
+	
 	public Secretaria(String nome, String cpf) {
-		super(nome, cpf);
+		super(nome, cpf, TIPO_PESSOA);
 	}
 
 	public void cadastrarPessoa(String nome, String cpf, String tipo) {

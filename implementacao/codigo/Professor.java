@@ -4,9 +4,10 @@ public class Professor extends Pessoa implements IVincularDesciplina {
 
 	private Collection<Disciplina> disciplinasAptas = new ArrayList<Disciplina>();
 	private Collection<Disciplina> disciplinasLecionadas = new ArrayList<Disciplina>();
+	public static final String TIPO_PESSOA = "P";
 
 	public Professor(String nome, String cpf) {
-		super(nome, cpf);
+		super(nome, cpf, TIPO_PESSOA);
 	}
 
 	private void addDisciplinaApta(Disciplina disciplina) {
