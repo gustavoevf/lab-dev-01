@@ -2,10 +2,13 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class Faculdade {
 
@@ -14,7 +17,8 @@ public class Faculdade {
     
 
     public Faculdade(){
-        
+    	carregarCursosArquivo();
+    	carregarPessoasArquivo();        
     }
 
     public void carregarCursosArquivo() {
@@ -49,7 +53,7 @@ public class Faculdade {
         String linhaLida;
         String[] PessoaLida;
         try {
-            entrada = new Scanner(new FileReader("pessoa.txt"));
+            entrada = new Scanner(new FileReader("pessoas.txt"));
             while (entrada.hasNextLine()) {
                 linhaLida = entrada.nextLine();
                 PessoaLida = linhaLida.split(";");
@@ -65,4 +69,24 @@ public class Faculdade {
             e.printStackTrace();
         }
     }
+	
+	
+	public void imprimirAlunosMatriculados() {
+				
+		ArrayList<Disciplina> disciplina = (ArrayList<Disciplina>) cursos.stream().flatMap(d-> d.getDisciplinas().stream()).collect(Collectors.toList()); 
+		disciplina.stream().forEach(a -> System.out.println("\n Disciplina : " + a.getNome() + " quantidade de alunos: " + a.getVinculados().size()));
+	
+	}
+	
+	public void imprimirCursos() {
+		
+		for(Curso curso : cursos) {
+			System.out.println(curso.getNome());
+			ArrayList<Disciplina> disciplinas = curso.getDisciplinas();
+			for(Disciplina disciplina : disciplinas) {
+				System.out.println("  " + disciplina.getNome());
+			}
+		}
+	}
+	
 }

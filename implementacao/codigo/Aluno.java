@@ -24,7 +24,7 @@ public class Aluno extends Pessoa implements IVincularDesciplina {
 	@Override
 	public boolean removerDisciplina(Disciplina disciplina) {
 
-		if(this.disciplinasRealizadas.contains(disciplina){
+		if(this.disciplinasRealizadas.contains(disciplina)){
 			this.disciplinasRealizadas.remove(disciplina);
 			return true;
 		}
