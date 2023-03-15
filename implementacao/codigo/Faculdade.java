@@ -40,6 +40,30 @@ public class Faculdade {
 				.findFirst().get();
 	}
 	
+	public Aluno obterAluno(String cpf) {
+		return this.pessoas.stream()
+				.filter(Aluno.class::isInstance)
+				.filter(a -> a.matricula.contentEquals(cpf))
+				.map(Aluno.class::cast)
+				.findFirst().get();
+	}
+	
+	public Professor obterProfessor(String cpf) {
+		return this.pessoas.stream()
+				.filter(Professor.class::isInstance)
+				.filter(p -> p.matricula.contentEquals(cpf))
+				.map(Professor.class::cast)
+				.findFirst().get();
+	}
+	
+	public Secretaria obterSecretaria(String cpf) {
+		return this.pessoas.stream()
+				.filter(Secretaria.class::isInstance)
+				.filter(s -> s.matricula.contentEquals(cpf))
+				.map(Secretaria.class::cast)
+				.findFirst().get();
+	}
+	
 	public ArrayList<Disciplina> obterDisciplinasPorCurso(String nomeCurso) {
 		Curso curso = this.cursos.stream()
 				.filter(c -> c.getNome().contentEquals(nomeCurso))
@@ -182,5 +206,17 @@ public class Faculdade {
 			}
 		}
 	}
+	
+//	public void imprimirAlunosPorDisciplina() {
+//
+//		System.out.println("\n\nALUNOS POR DISICIPLINAS : \n");
+//
+//		for (Disciplina disc : this.getDisciplinas()) {
+//			System.out.println("\n\nALUNOS MATRICULADOS NA DISCIPLINA " + disc.getNome() + ": \n");
+//			for (Aluno aln : disc.get) {
+//				System.out.println("\n\nPESSOAS MATRICULADAS NA DISCIPLINA " + disc.getNome() + ": \n");
+//			}
+//		}
+//	}
 
 }
