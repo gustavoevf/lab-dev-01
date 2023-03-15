@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Aplicacao {
 
 	public static void main(String[] args) throws IOException {
-
+		Scanner in = new Scanner(System.in);
 		Faculdade faculdade = new Faculdade();
 		faculdade.imprimirCursos();
 		faculdade.imprimirPessoas();
@@ -12,9 +12,7 @@ public class Aplicacao {
 		Boolean logado = false;
 		Pessoa pessoaLogada = null; 
 		
-		while(!logado) {
-			Scanner in = new Scanner(System.in);
-			
+		while(!logado) {	
 			System.out.println("Digite o seu cpf");
 			String cpf = in.nextLine();
 			System.out.println(cpf);
@@ -32,10 +30,29 @@ public class Aplicacao {
 			}
 		}
 		
-		System.out.println("Ola" + pessoaLogada.nome + "\n");
+		System.out.println("Ola " + pessoaLogada.nome + "\n");
 		System.out.println("Selecione o que deseja fazer: \n");
-		System.out.println("1 - Cadastrar pessoa \n");	
-		System.out.println("2 - Cadastrar curso \n");	
+		System.out.println("1 - Cadastrar pessoa \n");
+		System.out.println("2 - Cadastrar curso \n");
+		
+		String opcao = in.nextLine();
+		Secretaria secretaria = faculdade.obterSecretaria(pessoaLogada.matricula);
+		
+		switch(opcao) {
+			case("1"):
+				System.out.println("Digite o nome da pessoa: \n");
+				String nomePessoa = in.nextLine();
+				System.out.println("Digite o CPF da pessoa: \n");
+				String cpf = in.nextLine();
+				System.out.println("Digite o tipo (P)essoa, (S)ecretaria ou (A)luno: \n");
+				String tipo = in.nextLine();
+				secretaria.cadastrarPessoa(nomePessoa, cpf, tipo);
+			case("2"):
+				System.out.println("Digite o nome do curso: \n");
+				String nomeCurso = in.nextLine();
+				secretaria.cadastrarCurso(nomeCurso);
+		}
+		
 		// Secretaria sec = new Secretaria("Admin", "xxxxxxx");
 		// sec.cadastrarPessoa("TESTE INCLUSÃO 1", "342342432", "A");
 		// sec.cadastrarPessoa("TESTE INCLUSÃO 2", "342342432", "P");
