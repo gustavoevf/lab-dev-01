@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.Scanner;
 
 public class Aplicacao {
 
@@ -8,9 +9,33 @@ public class Aplicacao {
 		faculdade.imprimirCursos();
 		faculdade.imprimirPessoas();
 		
-		Pessoa p = faculdade.obterPessoa("11111111111");
-		System.out.println(p.usuario.verificarSenha("12345"));
-
+		Boolean logado = false;
+		Pessoa pessoaLogada = null; 
+		
+		while(!logado) {
+			Scanner in = new Scanner(System.in);
+			
+			System.out.println("Digite o seu cpf");
+			String cpf = in.nextLine();
+			System.out.println(cpf);
+			
+			pessoaLogada = faculdade.obterPessoa(cpf);
+			
+			System.out.println("Digite o sua senha");
+			String senha = in.nextLine();
+			
+			logado = pessoaLogada.usuario.verificarSenha(senha);
+			logado = pessoaLogada.tipoPessoa == "S";
+			
+			if(!logado) {
+				System.out.println("Senha e/ou usuario invalidos, tente novamente.");
+			}
+		}
+		
+		System.out.println("Ola" + pessoaLogada.nome + "\n");
+		System.out.println("Selecione o que deseja fazer: \n");
+		System.out.println("1 - Cadastrar pessoa \n");	
+		System.out.println("2 - Cadastrar curso \n");	
 		// Secretaria sec = new Secretaria("Admin", "xxxxxxx");
 		// sec.cadastrarPessoa("TESTE INCLUSÃO 1", "342342432", "A");
 		// sec.cadastrarPessoa("TESTE INCLUSÃO 2", "342342432", "P");
