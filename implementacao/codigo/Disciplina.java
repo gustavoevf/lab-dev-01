@@ -9,7 +9,7 @@ public class Disciplina {
 	private double cargaHoraria;
 	private int ano;
 	private Collection<Disciplina> preRequisitos = new ArrayList<Disciplina>();
-	private Collection<Pessoa> vinculados = new ArrayList<Pessoa>();
+	private Collection<Aluno> vinculados = new ArrayList<Aluno>();
 	
 	public Disciplina(String nome) {
 		super();
@@ -18,12 +18,12 @@ public class Disciplina {
 		this.cargaHoraria = 40;
 		this.ano = 2023;
 		this.preRequisitos = new ArrayList<Disciplina>();
-		this.vinculados = new ArrayList<Pessoa>();
+		this.vinculados = new ArrayList<Aluno>();
 		this.ativa = false;
 	}
 
 	public Disciplina(String nome, String descricao, int cargaHoraria, int ano, Collection<Disciplina> preRequisitos,
-			Collection<Pessoa> vinculados) {
+			Collection<Aluno> vinculados) {
 		super();
 		this.nome = nome;
 		this.descricao = descricao;
@@ -99,15 +99,15 @@ public class Disciplina {
 		this.preRequisitos = preRequisitos;
 	}
 
-	public Collection<Pessoa> getVinculados() {
+	public Collection<Aluno> getVinculados() {
 		return vinculados;
 	}
 
-	public void setVinculados(Collection<Pessoa> vinculados) {
+	public void setVinculados(Collection<Aluno> vinculados) {
 		this.vinculados = vinculados;
 	}
 
-	private void addAluno(Aluno aluno) {
+	public void addAluno(Aluno aluno) {
 		if(this.vinculados.size() <  60) {
 			this.vinculados.add(aluno);
 		} else {

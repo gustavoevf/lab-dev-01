@@ -20,6 +20,8 @@ public class Faculdade {
 		carregarDisciplinasArquivo();
 		carregarCursosArquivo();
 		carregarPessoasArquivo();
+		carregarAlunosCursosArquivo();
+		carregarAlunosDisciplinasArquivo();
 	}
 	
 	public Pessoa loginUsuario(String cpf, String senha) throws FileNotFoundException {
@@ -61,6 +63,18 @@ public class Faculdade {
 				.filter(Secretaria.class::isInstance)
 				.filter(s -> s.matricula.contentEquals(cpf))
 				.map(Secretaria.class::cast)
+				.findFirst().orElse(null);
+	}
+	
+	public Curso obterCurso(String nomeCurso) {
+		return this.cursos.stream()
+				.filter(c -> c.getNome().contentEquals(nomeCurso))
+				.findFirst().orElse(null);
+	}
+	
+	public Disciplina obterDisciplina(String nomeDisciplina) {
+		return this.getDisciplinas().stream()
+				.filter(d -> d.getNome().contentEquals(nomeDisciplina))
 				.findFirst().orElse(null);
 	}
 	
@@ -169,6 +183,52 @@ public class Faculdade {
 			e.printStackTrace();
 		}
 	}
+	
+	public void carregarAlunosCursosArquivo() {
+		Scanner entrada;
+		String linhaLida;
+		try {
+			entrada = new Scanner(new FileReader(
+					"alunosCursos.txt"));
+			while (entrada.hasNextLine()) {
+				linhaLida = entrada.nextLine();
+				Aluno aluno = this.obterAluno(linhaLida.split(";")[0]);
+				Curso curso = this.obterCurso(linhaLida.split(";")[1]);
+				if(curso != null && aluno != null) {
+					curso.addAluno(aluno);
+				}
+			}
+			entrada.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	public void carregarAlunosDisciplinasArquivo() {
+		Scanner entrada;
+		String linhaLida;
+		try {
+			entrada = new Scanner(new FileReader(
+					"alunosDisciplinas.txt"));
+			while (entrada.hasNextLine()) {
+				linhaLida = entrada.nextLine();
+				Aluno aluno = this.obterAluno(linhaLida.split(";")[0]);
+				
+				String discipl[] = Arrays.copyOfRange(linhaLida.split(";"), 1, linhaLida.split(";").length);
+
+				for (String d : discipl) {
+					Disciplina dscp = this.obterDisciplina(d);
+					if(dscp != null && aluno != null) {
+						dscp.addAluno(aluno);
+					}
+				}
+			}
+			entrada.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
 
 	public void imprimirAlunosMatriculados() {
 
@@ -207,16 +267,32 @@ public class Faculdade {
 		}
 	}
 	
-//	public void imprimirAlunosPorDisciplina() {
-//
-//		System.out.println("\n\nALUNOS POR DISICIPLINAS : \n");
-//
-//		for (Disciplina disc : this.getDisciplinas()) {
-//			System.out.println("\n\nALUNOS MATRICULADOS NA DISCIPLINA " + disc.getNome() + ": \n");
-//			for (Aluno aln : disc.get) {
-//				System.out.println("\n\nPESSOAS MATRICULADAS NA DISCIPLINA " + disc.getNome() + ": \n");
-//			}
-//		}
-//	}
+	public void imprimirAlunosPorCurso() {
+
+		System.out.println("\n\nALUNOS POR CURSO : \n");
+
+		for (Curso curs : this.getCursos()) {
+			if(curs.getAlunos().size() > 0) {
+				System.out.println("\n\nCurso -> " + curs.getNome());
+				for (Aluno aln : curs.getAlunos()) {
+					System.out.println(" " + aln.nome);
+				}
+			}
+		}
+	}
+	
+	public void imprimirAlunosPorDisciplina() {
+
+		System.out.println("\n\nALUNOS POR DISICIPLINAS : \n");
+
+		for (Disciplina disc : this.getDisciplinas()) {
+			if(disc.getVinculados().size() > 0) {
+				System.out.println("\n\nDISCIPLINA -> " + disc.getNome());
+				for (Aluno aln : disc.getVinculados()) {
+					System.out.println(" " + aln.nome);
+				}
+			}
+		}
+	}
 
 }

@@ -56,7 +56,7 @@ public class Curso implements IVincularDesciplina {
 	}
 
 	public void addAluno(Aluno aluno) {
-
+		this.alunos.add(aluno);
 	}
 
 	@Override
