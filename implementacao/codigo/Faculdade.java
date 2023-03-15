@@ -37,7 +37,7 @@ public class Faculdade {
 	public Pessoa obterPessoa(String cpf) {
 		return this.pessoas.stream()
 				.filter(p -> p.matricula.contentEquals(cpf))
-				.findFirst().get();
+				.findFirst().orElse(null);
 	}
 	
 	public Aluno obterAluno(String cpf) {
@@ -45,7 +45,7 @@ public class Faculdade {
 				.filter(Aluno.class::isInstance)
 				.filter(a -> a.matricula.contentEquals(cpf))
 				.map(Aluno.class::cast)
-				.findFirst().get();
+				.findFirst().orElse(null);
 	}
 	
 	public Professor obterProfessor(String cpf) {
@@ -53,7 +53,7 @@ public class Faculdade {
 				.filter(Professor.class::isInstance)
 				.filter(p -> p.matricula.contentEquals(cpf))
 				.map(Professor.class::cast)
-				.findFirst().get();
+				.findFirst().orElse(null);
 	}
 	
 	public Secretaria obterSecretaria(String cpf) {
@@ -61,7 +61,7 @@ public class Faculdade {
 				.filter(Secretaria.class::isInstance)
 				.filter(s -> s.matricula.contentEquals(cpf))
 				.map(Secretaria.class::cast)
-				.findFirst().get();
+				.findFirst().orElse(null);
 	}
 	
 	public ArrayList<Disciplina> obterDisciplinasPorCurso(String nomeCurso) {

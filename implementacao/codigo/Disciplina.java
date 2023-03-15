@@ -4,7 +4,7 @@ import java.util.*;
 public class Disciplina {
 
 	private String nome;
-	private boolean ativo;
+	private boolean ativa;
 	private String descricao;
 	private double cargaHoraria;
 	private int ano;
@@ -19,7 +19,7 @@ public class Disciplina {
 		this.ano = 2023;
 		this.preRequisitos = new ArrayList<Disciplina>();
 		this.vinculados = new ArrayList<Pessoa>();
-		this.ativo = false;
+		this.ativa = false;
 	}
 
 	public Disciplina(String nome, String descricao, int cargaHoraria, int ano, Collection<Disciplina> preRequisitos,
@@ -31,7 +31,7 @@ public class Disciplina {
 		this.ano = ano;
 		this.preRequisitos = preRequisitos;
 		this.vinculados = vinculados;
-		this.ativo = false;
+		this.ativa = false;
 	}
 
 	public Disciplina(String nome, String descricao, double cargaHoraria, int ano){
@@ -53,6 +53,22 @@ public class Disciplina {
 
 	public String getDescricao() {
 		return descricao;
+	}
+	
+	public void ativarDisciplina() {
+		this.ativa = true;
+	}
+	
+	public void desativarDisciplina() {
+		this.ativa = false;
+	}
+
+	public boolean getStatusAtiva() {
+		if(this.vinculados.size() >= 3) {
+			this.ativa = true;
+		}
+		
+		return ativa;
 	}
 
 	public void setDescricao(String descricao) {
@@ -92,11 +108,19 @@ public class Disciplina {
 	}
 
 	private void addAluno(Aluno aluno) {
-		
+		if(this.vinculados.size() <  60) {
+			this.vinculados.add(aluno);
+		} else {
+			System.out.println("Limite maximo alcançado!");
+		}
+	}
+	
+	private void removeAluno(Aluno aluno) {
+		this.vinculados.remove(aluno);
 	}
 
 	private void addRequisito(Disciplina disciplina) {
-		
+		this.preRequisitos.add(disciplina);
 	}
 
 	private void removerRequisito(Disciplina disciplina) {
